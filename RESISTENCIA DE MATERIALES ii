@@ -1,0 +1,76 @@
+def validar_nota(nota):
+    """
+    Función para validar que la nota ingresada no sea mayor a 20.
+    
+    Argumentos:
+    nota: float, nota de la evaluación.
+    
+    Retorna:
+    float, nota validada.
+    """
+    if nota > 20:
+        print("Error: La nota no puede ser mayor a 20.")
+        nota = float(input("Por favor, ingrese una nota válida: "))
+        return validar_nota(nota)
+    else:
+        return nota
+
+def calcular_nota_final_unidad(nota1, nota2, nota3, peso_nota1, peso_nota2, peso_nota3):
+    """
+    Función para calcular la nota final de una unidad.
+    
+    Argumentos:
+    nota1: float, nota de la primera evaluación.
+    nota2: float, nota de la segunda evaluación.
+    nota3: float, nota de la tercera evaluación.
+    peso_nota1: float, porcentaje de peso de la nota 1.
+    peso_nota2: float, porcentaje de peso de la nota 2.
+    peso_nota3: float, porcentaje de peso de la nota 3.
+    
+    Retorna:
+    float, nota final de la unidad.
+    """
+    nota_final = peso_nota1 * nota1 + peso_nota2 * nota2 + peso_nota3 * nota3
+    return nota_final
+
+# Definir pesos para cada unidad
+peso_unidad1 = [0.3, 0.35, 0.35]  # peso para cada nota en la unidad 1
+peso_unidad2 = [0.3, 0.3, 0.4]     # peso para cada nota en la unidad 2
+peso_unidad3 = [0.3, 0.3, 0.4]     # peso para cada nota en la unidad 3
+
+# Calcular nota final de la Unidad 1
+print("Para la Unidad 1:")
+nota1_u1 = float(input("TRABAJO ENCARGADO : "))
+nota1_u1 = validar_nota(nota1_u1)
+nota2_u1 = float(input("PRACTICA : "))
+nota2_u1 = validar_nota(nota2_u1)
+nota3_u1 = float(input("EXAMEN : "))
+nota3_u1 = validar_nota(nota3_u1)
+nota_final_u1 = calcular_nota_final_unidad(nota1_u1, nota2_u1, nota3_u1, *peso_unidad1)
+print("La nota final de la Unidad 1 es:", nota_final_u1)
+
+# Calcular nota final de la Unidad 2
+print("\nPara la Unidad 2:")
+nota1_u2 = float(input("TRABAJO ENCARGADO : "))
+nota1_u2 = validar_nota(nota1_u2)
+nota2_u2 = float(input("PRACTICA : "))
+nota2_u2 = validar_nota(nota2_u2)
+nota3_u2 = float(input("EXAMEN : "))
+nota3_u2 = validar_nota(nota3_u2)
+nota_final_u2 = calcular_nota_final_unidad(nota1_u2, nota2_u2, nota3_u2, *peso_unidad2)
+print("La nota final de la Unidad 2 es:", nota_final_u2)
+
+# Calcular nota final de la Unidad 3
+print("\nPara la Unidad 3:")
+nota1_u3 = float(input("TRABAJO ENCARGADO : "))
+nota1_u3 = validar_nota(nota1_u3)
+nota2_u3 = float(input("PRACTICA : "))
+nota2_u3 = validar_nota(nota2_u3)
+nota3_u3 = float(input("EXAMEN : "))
+nota3_u3 = validar_nota(nota3_u3)
+nota_final_u3 = calcular_nota_final_unidad(nota1_u3, nota2_u3, nota3_u3, *peso_unidad3)
+print("La nota final de la Unidad 3 es:", nota_final_u3)
+
+# Calcular promedio de las unidades
+promedio_unidades = (nota_final_u1 + nota_final_u2 + nota_final_u3) / 3
+print("\nEl promedio de las unidades es:", promedio_unidades)
